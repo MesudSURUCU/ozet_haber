@@ -1,65 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ozet_haber/pages/main.dart';
+import 'package:ozet_haber/constants/titles.dart';
+import 'package:ozet_haber/constants/default_images.dart';
+import 'package:ozet_haber/constants/world_news_list.dart';
+import 'package:ozet_haber/widgets/big_container.dart';
+import 'package:ozet_haber/widgets/big_sized_box.dart';
+import 'package:ozet_haber/widgets/custom_title.dart';
+import 'package:ozet_haber/widgets/news_title.dart';
 
-class WorldNews extends StatefulWidget {
+class WorldNews extends StatelessWidget {
   const WorldNews({super.key});
 
-  @override
-  State<WorldNews> createState() => _WorldNewsState();
-}
-
-class _WorldNewsState extends State<WorldNews> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: CustomTitle("Dünya"),
+          title: CustomTitle(worldTitle),
         ),
       
         body: Column(children: [
-          Expanded(child: SingleChildScrollView(
-            child: Column(children: [
-              Row(children: [
-                SizedBox(
-                width: 360.w,
-                child: Column(children: [
-                  CustomContainerDunya(360.w,200.w),
-                  NewsTitle("Hindistan'da sel felaketi")
-                ]
-              ),)],),
-              
-              Row(children: [
-                SizedBox(
-                width: 360.w,
-                child: Column(children: [
-                  CustomContainerDunya(360.w,200.w),
-                  NewsTitle("Trump, Putin ile Alaska'da görüştü.")
-                ]
-              ),)],),
-      
-              Row(children: [
-                SizedBox(
-                width: 360.w,
-                child: Column(children: [
-                  CustomContainerDunya(360.w,200.w),
-                  NewsTitle("Avrupa'da aşırı sıcağa bağlı ölümlerde ciddi artış yaşanıyor.")
-                ]
-              ),)],),
-      
-              Row(children: [
-                SizedBox(
-                width: 360.w,
-                child: Column(children: [
-                  CustomContainerDunya(360.w,200.w),
-                  NewsTitle("İtalya'da orman yangını... Alevler kasabaya yaklaştı.")
-                ]
-              ),)],),
-      
-            ],),))
-        ],),
-      ),
+          Expanded(child: 
+            SingleChildScrollView(child: 
+              Column(children: [
+                for(var i=0;i<worldNews.length;i++)
+                  Row(children: [
+                    BigSizedBox(
+                      Column(children: [
+                        BigContainer(worldPng),
+                        NewsTitle(worldNews[i])
+                      ])
+                    )
+                  ]),
+              ])
+            )
+          )
+        ])
+      )
     );
   }
 }
