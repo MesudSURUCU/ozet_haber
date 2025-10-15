@@ -19,68 +19,106 @@ class HomePage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(title: Center(child: CustomTitle(mainPageTitle))),
-        body: Column(children: [
-                Expanded(child: 
-                  SingleChildScrollView(child: 
-                    Column(children: [
-                      Row(children: [CustomTitle(turkiyeTitle)]),
+        body: Column(
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Row(children: [CustomTitle(turkiyeTitle)]),
 
-                      Row(children: [
-                        Expanded(child: 
-                          SingleChildScrollView(
+                    Row(
+                      children: [
+                        Expanded(
+                          child: SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
-                            child: Row(children: [
-                              for(var i=0;i<3;i++)
-                                Column(children: [
-                                  SmallSizedBox(
-                                    Column(children: [
-                                      SmallContainer(turkiyePng),
-                                      NewsTitle(turkiyeNews[i])
-                                    ])
-                                  )
-                                ]),
-                              Column(children: [
-                                ElevatedButton(
-                                  onPressed:() {Navigator.push(context, MaterialPageRoute(builder: (context) => TurkiyeNews()));},
-                                  child: Text(btnMore)
-                                )
-                              ])
-                            ])
-                          )
-                        )
-                      ]),
-      
-                      Row(children: [CustomTitle(worldTitle)]),
+                            child: Row(
+                              children: [
+                                for (var i = 0; i < 3; i++)
+                                  Column(
+                                    children: [
+                                      SmallSizedBox(
+                                        Column(
+                                          children: [
+                                            SmallContainer(turkiyePng),
+                                            NewsTitle(turkiyeNews[i]),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                Column(
+                                  children: [
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => TurkiyeNews(),
+                                          ),
+                                        );
+                                      },
+                                      child: Text(ButtonTextConst.btnMore),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
 
-                      Row(children: [
-                        Expanded(child: 
-                          SingleChildScrollView(
+                    Row(children: [CustomTitle(worldTitle)]),
+
+                    Row(
+                      children: [
+                        Expanded(
+                          child: SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
-                            child: Row(children: [
-                              for(var i=0;i<3;i++)
-                                Column(children: [
-                                  SmallSizedBox(
-                                    Column(children: [
-                                      SmallContainer(worldPng),
-                                      NewsTitle(worldNews[i])
-                                    ])
-                                  )
-                                ]),
-                              Column(children: [
-                                ElevatedButton(
-                                  onPressed:() {Navigator.push(context, MaterialPageRoute(builder: (context) => WorldNews()));},
-                                  child: Text(btnMore)
-                                )
-                              ])
-                            ])
-                          )
-                        )
-                      ])
-                    ])
-                  )
-                )
-              ])
-      )
+                            child: Row(
+                              children: [
+                                for (var i = 0; i < 3; i++)
+                                  Column(
+                                    children: [
+                                      SmallSizedBox(
+                                        Column(
+                                          children: [
+                                            SmallContainer(worldPng),
+                                            NewsTitle(worldNews[i]),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                Column(
+                                  children: [
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => WorldNews(),
+                                          ),
+                                        );
+                                      },
+                                      child: Text(ButtonTextConst.btnMore),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
