@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
 
       builder: (_, child) {
         return MaterialApp(
-          title: appTitle,
+          title: TitlesConst.appTitle,
           debugShowCheckedModeBanner: false,
           theme: ThemeData.dark().copyWith(
             appBarTheme: AppBarTheme(

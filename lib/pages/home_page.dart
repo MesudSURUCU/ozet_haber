@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ozet_haber/constants/button_texts.dart';
 import 'package:ozet_haber/constants/titles.dart';
 import 'package:ozet_haber/constants/default_images.dart';
-import 'package:ozet_haber/constants/turkiye_news_list.dart';
-import 'package:ozet_haber/constants/world_news_list.dart';
+import 'package:ozet_haber/constants/news_list.dart';
 import 'package:ozet_haber/pages/turkiye_news.dart';
 import 'package:ozet_haber/pages/world_news.dart';
 import 'package:ozet_haber/widgets/custom_title.dart';
@@ -18,14 +17,14 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(title: Center(child: CustomTitle(mainPageTitle))),
+        appBar: AppBar(title: Center(child: CustomTitle(TitlesConst.homePageTitle))),
         body: Column(
           children: [
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Row(children: [CustomTitle(turkiyeTitle)]),
+                    Row(children: [CustomTitle(TitlesConst.turkiyeTitle)]),
 
                     Row(
                       children: [
@@ -40,8 +39,8 @@ class HomePage extends StatelessWidget {
                                       SmallSizedBox(
                                         Column(
                                           children: [
-                                            SmallContainer(turkiyePng),
-                                            NewsTitle(turkiyeNews[i]),
+                                            SmallContainer(ImagesConst.turkiyePng),
+                                            NewsTitle(NewsListConst.turkiyeNewsList[i]),
                                           ],
                                         ),
                                       ),
@@ -69,7 +68,7 @@ class HomePage extends StatelessWidget {
                       ],
                     ),
 
-                    Row(children: [CustomTitle(worldTitle)]),
+                    Row(children: [CustomTitle(TitlesConst.worldTitle)]),
 
                     Row(
                       children: [
@@ -84,8 +83,8 @@ class HomePage extends StatelessWidget {
                                       SmallSizedBox(
                                         Column(
                                           children: [
-                                            SmallContainer(worldPng),
-                                            NewsTitle(worldNews[i]),
+                                            SmallContainer(ImagesConst.worldPng),
+                                            NewsTitle(NewsListConst.worldNewsList[i]),
                                           ],
                                         ),
                                       ),

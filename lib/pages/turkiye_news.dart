@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ozet_haber/constants/titles.dart';
 import 'package:ozet_haber/constants/default_images.dart';
-import 'package:ozet_haber/constants/turkiye_news_list.dart';
+import 'package:ozet_haber/constants/news_list.dart';
 import 'package:ozet_haber/widgets/big_container.dart';
 import 'package:ozet_haber/widgets/big_sized_box.dart';
 import 'package:ozet_haber/widgets/custom_title.dart';
@@ -15,19 +15,19 @@ class TurkiyeNews extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: CustomTitle(turkiyeTitle),
+          title: CustomTitle(TitlesConst.turkiyeTitle),
         ),
       
         body: Column(children: [
           Expanded(child: 
             SingleChildScrollView(child: 
               Column(children: [
-                for(var i=0;i<turkiyeNews.length;i++)
+                for(var i=0;i<NewsListConst.turkiyeNewsList.length;i++)
                   Row(children: [
                     BigSizedBox(
                       Column(children: [
-                        BigContainer(turkiyePng),
-                        NewsTitle(turkiyeNews[i])
+                        BigContainer(ImagesConst.turkiyePng),
+                        NewsTitle(NewsListConst.turkiyeNewsList[i])
                       ])
                     )
                   ]),
