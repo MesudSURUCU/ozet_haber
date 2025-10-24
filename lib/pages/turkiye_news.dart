@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:ozet_haber/constants/titles.dart';
 import 'package:ozet_haber/constants/default_images.dart';
@@ -7,8 +8,9 @@ import 'package:ozet_haber/widgets/big_sized_box.dart';
 import 'package:ozet_haber/widgets/custom_title.dart';
 import 'package:ozet_haber/widgets/news_title.dart';
 
-class TurkiyeNews extends StatelessWidget {
-  const TurkiyeNews({super.key});
+@RoutePage()
+class TurkiyeNewsPage extends StatelessWidget {
+  const TurkiyeNewsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

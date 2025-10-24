@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:ozet_haber/constants/news_list.dart';
 import 'package:ozet_haber/constants/titles.dart';
@@ -7,8 +8,9 @@ import 'package:ozet_haber/widgets/big_sized_box.dart';
 import 'package:ozet_haber/widgets/custom_title.dart';
 import 'package:ozet_haber/widgets/news_title.dart';
 
-class WorldNews extends StatelessWidget {
-  const WorldNews({super.key});
+@RoutePage()
+class WorldNewsPage extends StatelessWidget {
+  const WorldNewsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

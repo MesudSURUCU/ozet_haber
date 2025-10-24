@@ -1,15 +1,16 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:ozet_haber/constants/button_texts.dart';
 import 'package:ozet_haber/constants/titles.dart';
 import 'package:ozet_haber/constants/default_images.dart';
 import 'package:ozet_haber/constants/news_list.dart';
-import 'package:ozet_haber/pages/turkiye_news.dart';
-import 'package:ozet_haber/pages/world_news.dart';
+import 'package:ozet_haber/router/app_router.dart';
 import 'package:ozet_haber/widgets/custom_title.dart';
 import 'package:ozet_haber/widgets/news_title.dart';
 import 'package:ozet_haber/widgets/small_container.dart';
 import 'package:ozet_haber/widgets/small_sized_box.dart';
 
+@RoutePage()
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -50,12 +51,7 @@ class HomePage extends StatelessWidget {
                                   children: [
                                     ElevatedButton(
                                       onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => TurkiyeNews(),
-                                          ),
-                                        );
+                                        context.router.push(TurkiyeNewsRoute());
                                       },
                                       child: Text(ButtonTextConst.btnMore),
                                     ),
@@ -94,12 +90,7 @@ class HomePage extends StatelessWidget {
                                   children: [
                                     ElevatedButton(
                                       onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => WorldNews(),
-                                          ),
-                                        );
+                                        context.router.push(WorldNewsRoute());
                                       },
                                       child: Text(ButtonTextConst.btnMore),
                                     ),

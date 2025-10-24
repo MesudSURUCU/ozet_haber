@@ -3,16 +3,18 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ozet_haber/constants/colors.dart';
 import 'package:ozet_haber/constants/titles.dart';
-import 'package:ozet_haber/pages/home_page.dart';
+import 'package:ozet_haber/router/app_router.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  final _appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,8 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
 
       builder: (_, child) {
-        return MaterialApp(
+        return MaterialApp.router(
+          routerConfig: _appRouter.config(),
           title: TitlesConst.appTitle,
           debugShowCheckedModeBanner: false,
           theme: ThemeData.dark().copyWith(
@@ -32,10 +35,8 @@ class MyApp extends StatelessWidget {
             ),
             scaffoldBackgroundColor: ColorsConst.darkGray,
           ),
-          home: child,
         );
       },
-      child: const HomePage(),
     );
   }
 }
